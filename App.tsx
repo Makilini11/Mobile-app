@@ -10,6 +10,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import auth from './services/FireBaseAuth';
 import PartnerChoice from './src/PartnerChoiceScreen';
 import Dashboard from './src/HomeScreen';
+import Index from './src/Index';
 
 
 export default function App() {
@@ -29,7 +30,8 @@ export default function App() {
       
         
       <NavigationContainer> 
-              <Stack.Navigator initialRouteName='Login'> 
+              <Stack.Navigator initialRouteName='Index'> 
+                <Stack.Screen name='Index' component={Index}/>
                 <Stack.Screen name='Register' component={Register}/> 
                 <Stack.Screen name='Login' component={Login}/> 
                 

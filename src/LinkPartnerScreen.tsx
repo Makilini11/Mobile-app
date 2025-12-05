@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 import React, { useState } from 'react';
 import API from './api/api';
-
 import auth from '../services/FireBaseAuth';
+import Colour from '../shared/Colour';
 
 
 export default function LinkPartner({ route, navigation }: { route: any; navigation: any }) {
@@ -75,16 +75,17 @@ export default function LinkPartner({ route, navigation }: { route: any; navigat
           keyboardType="numeric"
           value={partnerCode}
           onChangeText={setPartnerCode}
+      
         />
       )}
 
-      <Button title="Continue" onPress={handleContinue} />
+      <Button title="Continue" onPress={handleContinue}  color={Colour.Primary}/>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container:{ flex:1, padding:25, justifyContent:'center' },
-  title:{ fontSize:22, textAlign:'center', marginBottom:20 },
-  input:{ borderWidth:1, padding:12, marginBottom:15 }
+  container:{ flex:1, padding:25, justifyContent:'center',backgroundColor:Colour.Secondary },
+  title:{ fontSize:22, textAlign:'center', marginBottom:20,color:Colour.Text },
+  input:{ borderWidth:1, padding:12, marginBottom:15,color:Colour.Text }
 });
