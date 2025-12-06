@@ -13,7 +13,9 @@ const [password,setpassword]=useState('');
       alert("Usercreate Successfully!")
       setemail('')
       setpassword('')
-      navigation.replace("PartnerChoice");
+      // navigation.replace("PartnerChoice");
+       navigation.replace("Dashboard");
+
     })
     .catch((error)=>{
 

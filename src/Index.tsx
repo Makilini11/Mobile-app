@@ -2,6 +2,7 @@ import { Platform, Text, View, TextInput, Dimensions,StyleSheet, TouchableOpacit
 import { Image } from 'react-native';
 import Colour from '../shared/Colour';
 export default function Index({navigation}:{navigation :any}){
+    
     const GoToLogin=()=>{navigation.navigate("Login")
 }
     return(

@@ -3,17 +3,34 @@ import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import auth from '../services/FireBaseAuth';
 import Colour from '../shared/Colour';
+import { sendPasswordResetEmail } from 'firebase/auth';
+
 export default function Login({navigation}:{navigation :any}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errormessage, seterrormesage]=useState('');
+  const handleForgotPassword = () => {
+  if (!email) {
+    seterrormesage("Please enter email to reset password");
+    return;
+  }
+
+  sendPasswordResetEmail(auth, email)
+    .then(() => {
+      alert("Password reset link sent to your email");
+    })
+    .catch((error) => {
+      seterrormesage("Failed to send reset email");
+    });
+};
 
   const HandleLogin = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         alert("Login Successfully!");
         
-        navigation.navigate("PartnerChoice");
+        // navigation.navigate("PartnerChoice");
+        navigation.navigate("Dashboard");
 
         
       })
@@ -51,6 +68,12 @@ const GoToRegister=()=>{
         onChangeText={setPassword}   
         value={password}
       />
+      <TouchableOpacity onPress={handleForgotPassword}>
+        <Text style={{ color: Colour.Primary, marginBottom: 15 }}>
+          Forgot Password?
+        </Text>
+      </TouchableOpacity>
+
 
       {/* Button */}
       <View style={styles.buttonContainer}>

@@ -4,11 +4,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Register from './src/RegisterScreen';
 import Login from './src/LoginScreen';
-import LinkPartner from './src/LinkPartnerScreen';
+// import LinkPartner from './src/LinkPartnerScreen';
 import { useEffect, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import auth from './services/FireBaseAuth';
-import PartnerChoice from './src/PartnerChoiceScreen';
+// import PartnerChoice from './src/PartnerChoiceScreen';
 import Dashboard from './src/HomeScreen';
 import Index from './src/Index';
 
@@ -35,8 +35,8 @@ export default function App() {
                 <Stack.Screen name='Register' component={Register}/> 
                 <Stack.Screen name='Login' component={Login}/> 
                 
-                <Stack.Screen name="PartnerChoice" component={PartnerChoice} />
-                <Stack.Screen name="PartnerLink" component={LinkPartner} />
+                {/* <Stack.Screen name="PartnerChoice" component={PartnerChoice} />
+                <Stack.Screen name="PartnerLink" component={LinkPartner} /> */}
                 <Stack.Screen name="Dashboard" component={Dashboard} />
                  
               
